@@ -2,8 +2,8 @@ from bottle import route, run, request
 import csv
 import jwt
 
-@route('/tax/<username>&<token>')
-def bank(username, token):    
+@route('/tax/<token>')
+def bank(token):    
     try:
        user = jwt.decode(token, 'secret', algorithms=['HS256'])
        with open('usersTaxes.csv', 'r') as file:
