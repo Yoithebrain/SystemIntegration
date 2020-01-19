@@ -23,7 +23,7 @@ if easyID_token.status_code != 404:
     #print('Balance: ' + bank_balance.text + "DKK")
 
     # SKAT REQUEST
-    skat_debt = requests.get(f"http://localhost:9000/login/{easyID_token.text}")
+    skat_debt = requests.get(f"http://localhost:9000/login/{token_json['token']}")
     print('Debt: ' + skat_debt.text + "DKK")
 else:
     print("404 ERROR")

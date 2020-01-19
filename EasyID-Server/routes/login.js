@@ -17,9 +17,9 @@ module.exports = (req, res) => {
 
             if (enteredPassword === accountPassword) {
                 const card = jwt.sign(
-                    { 'status': 'Authenticated', 'email': enteredEmail, 'password': enteredPassword },
+                    {'email': enteredEmail, 'password': enteredPassword },
                     'secret'
-                );
+                ); //'status': 'Authenticated'
                 console.log('accessing: ', enteredEmail);
                 return res.status(200).send(card)
             } else {
