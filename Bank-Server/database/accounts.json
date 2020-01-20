@@ -1,4 +1,4 @@
 {
-    "a@a.com": { "password": "1", "balance": 6000 },
-    "b@b.com": { "password": "2", "balance": -420 }
+    "a@a.com": { "balance": 6000 },
+    "b@b.com": { "balance": -420 }
 }

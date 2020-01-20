@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
+const xml = require('xml');
 
 module.exports = (req, res) => {
 
@@ -9,7 +10,7 @@ module.exports = (req, res) => {
         if (err) { return res.status(404).send('Invalid token') }
 
         const tokenEmail = tokenData.email;
-        const tokenPassword = tokenData.password;
+        const tokenStatus = tokenData.status;
 
         fs.readFile('./database/accounts.json', (err, accountData) => {
             if (err) console.log(err);
@@ -18,9 +19,13 @@ module.exports = (req, res) => {
             const account = accounts[tokenEmail];
 
             if (account) {
-                if (account.password === tokenPassword) {
+                if ('Authenticated' === tokenStatus) {
                     console.log('request from:', tokenEmail)
-                    return res.status(200).json(account.balance)
+                    res.set('Content-Type', 'text/xml')
+                    return res.send(xml('<AccountBalance='+account.balance+"/>"));
+
+
+                    //return res.status(200).json(account.balance)
                 } else {
                     return res.status(404).send('Password is wrong')
                 }
