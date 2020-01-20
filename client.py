@@ -19,11 +19,11 @@ if easyID_token.status_code != 404:
     token_json = { 'token': easyID_token.text }
 
     # BANK REQUEST
-    #bank_balance = requests.get(bank_url, params=token_json)    
-    #print('Balance: ' + bank_balance.text + "DKK")
+    bank_balance = requests.get(bank_url, params=token_json)    
+    print('Balance: ' + bank_balance.text + "DKK")
 
     # SKAT REQUEST
     skat_debt = requests.get(f"http://localhost:9000/login/{token_json['token']}")
-    print('Debt: ' + skat_debt.text + "DKK")
+    print('Debt: ' + skat_debt.text + " DKK")
 else:
     print("404 ERROR")
