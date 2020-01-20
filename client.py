@@ -20,6 +20,7 @@ if easyID_token.status_code != 404:
 
     # BANK REQUEST
     bank_balance = requests.get(bank_url, params=token_json)    
+    
     print('Balance: ' + bank_balance.text + "DKK")
 
     # SKAT REQUEST
