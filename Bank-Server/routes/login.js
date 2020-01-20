@@ -21,11 +21,11 @@ module.exports = (req, res) => {
             if (account) {
                 if ('Authenticated' === tokenStatus) {
                     console.log('request from:', tokenEmail)
-                    res.set('Content-Type', 'text/xml')
-                    return res.send(xml('<AccountBalance='+account.balance+"/>"));
+                    //res.set('Content-Type', 'text/xml')
+                    //return res.send(xml('<AccountBalance='+account.balance+"/>"));
 
 
-                    //return res.status(200).json(account.balance)
+                    return res.status(200).json(account.balance)
                 } else {
                     return res.status(404).send('Password is wrong')
                 }

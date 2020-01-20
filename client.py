@@ -1,6 +1,7 @@
 import requests
 import jwt
 import json
+import xml.etree.ElementTree as xml
 
 easyID_url = 'http://localhost:80/login'
 bank_url = 'http://localhost:8081/login'
@@ -20,7 +21,6 @@ if easyID_token.status_code != 404:
 
     # BANK REQUEST
     bank_balance = requests.get(bank_url, params=token_json)    
-    
     print('Balance: ' + bank_balance.text + "DKK")
 
     # SKAT REQUEST
