@@ -1,7 +1,7 @@
 import requests
 import jwt
 import json
-import xml.etree.ElementTree as xml
+#import xml.etree.ElementTree as xml
 
 easyID_url = 'http://localhost:80/login'
 bank_url = 'http://localhost:8081/login'
