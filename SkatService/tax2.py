@@ -1,6 +1,5 @@
 #Imports
 from bottle import get, post, request, route, run
-import jwt
 import sqlite3 as sqlite
 import jose.jws as jws
 import jose.jwt as jwt
